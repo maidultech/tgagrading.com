@@ -1,0 +1,107 @@
+
+@extends('admin.layouts.master')
+@section('grading_scale', 'active')
+@section('title'){{ $title ?? 'Manage Grading Scale' }} @endsection
+
+@section('content')
+    <div class="content-wrapper">
+        <div class="content">
+            <div class="container-fluid pt-3">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <h3 class="card-title">Manage Grading Scale </h3>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="float-right">
+                                            {{-- @if (Auth::user()->can('admin.faq.create')) --}}
+                                                <a href="{{ route('admin.grading-scale.create') }}" class="btn btn-primary btn-gradient btn-sm">Add New</a>
+                                            {{-- @endif --}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body table-responsive p-0">
+                                 <table id="dataTables" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>SN</th>
+                                            <th>Title</th>
+                                            <th>Body</th>
+                                            {{-- <th>{{__('messages.common.status')}}</th> --}}
+                                            <th>Order Number</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tfoot>
+                                        <tr>
+                                            <th>SN</th>
+                                            <th>Title</th>
+                                            <th>Body</th>
+                                            {{-- <th>{{__('messages.common.status')}}</th> --}}
+                                            <th>Order Number</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+
+                                    <tbody>
+                                        @foreach ($rows as $key => $row)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $row->title }}</td>
+                                                <td>{!! Str::limit($row->body, 50, '...') !!}</td>
+                                                {{-- <td>
+                                                    @if ($row->is_active == 1)
+                                                        <span class="text-success">Active</span>
+                                                    @else
+                                                        <span class="text-danger">Inactive</span>
+                                                    @endif
+                                                </td> --}}
+                                                <td>
+                                                    <span class="text-info">{{ $row->order_id }}</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-xs btn-secondary dropdown-toggle btn-sm btn-gradient" type="button"
+                                                            data-toggle="dropdown" aria-expanded="false">
+                                                            {{__('messages.common.actions')}}
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            {{-- @if (Auth::user()->can('admin.faq.view')) --}}
+                                                            <a href="{{ route('admin.grading-scale.view', $row->id) }}" class="dropdown-item"><i class="fa fa-eye"></i> {{__('messages.common.view')}}</a>
+                                                            {{-- @endif --}}
+
+                                                            {{-- @if (Auth::user()->can('admin.faq.edit')) --}}
+                                                            <a href="{{ route('admin.grading-scale.edit', $row->id) }}" class="dropdown-item"><i class="fa fa-pencil"></i> {{__('messages.common.edit')}}</a>
+                                                            {{-- @endif --}}
+
+                                                            {{-- @if (Auth::user()->can('admin.faq.delete')) --}}
+                                                            <a href="{{route('admin.grading-scale.delete', $row->id)}}" id="deleteData" class="dropdown-item"><i class="fa fa-trash"></i> {{__('messages.common.delete')}}</a>
+                                                            {{-- @endif --}}
+
+                                                        </div>
+                                                    </div>
+
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@endsection
+
+@push('script')
+@endpush

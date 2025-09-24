@@ -1,0 +1,182 @@
+@media screen and (max-width:1199px) {
+    .header_section .nav-link {
+        padding: 17px 8px !important;
+        font-size: 14px;
+    }
+}
+
+
+@media screen and (min-width:992px) {
+    .header_section .dropdown-menu {
+        -webkit-transition: all .2s ease-out;
+        transition: all .2s ease-out;
+        -moz-transition: all .2s ease-out;
+        -ms-transition: all .2s ease-out;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        display: block !important;
+        background: #fff;
+        opacity: 0;
+        visibility: hidden;
+        top: 112%;
+        right: 0;
+    }
+
+    .header_section .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        top: 100%;
+        z-index: 9999;
+    }
+}
+
+@media screen and (max-width:991px) {
+
+    .header_section .nav-link {
+        font-size: 15px;
+        font-weight: 400;
+        padding: 7px 0px !important;
+        color: #212121;
+    }
+
+    .banner_content h1 {
+        font-size: 28px;
+    }
+
+
+
+    .pricing_section .pricing-head h4 {
+        font-size: 20px;
+    }
+
+    .pricing_section .pricing-head h2 {
+        font-size: 28px;
+    }
+
+    .order_section .content p {
+        font-size: 20px;
+    }
+
+    .blog-post img {
+        width: 100%;
+        /* Ensure the image fits within its container */
+        height: 200px;
+        /* Set a fixed height for all images */
+        object-fit: cover;
+        /* Maintain aspect ratio while covering the entire area */
+        border-radius: 10px;
+        /* Optional: Adjust border radius if needed */
+    }
+
+}
+
+@media screen and (max-width:767px) {
+    .banner_content h1 {
+        font-size: 20px;
+    }
+
+    .banner_content h4 {
+        font-size: 16px;
+    }
+
+    .section_heading h2 {
+        font-size: 20px;
+    }
+
+    .section_heading p {
+        font-size: 16px;
+    }
+
+    .contact_info h1 {
+        font-size: 25px;
+        line-height: 35px;
+    }
+
+    .user_dashboard .title h4 {
+        font-size: 15px;
+    }
+
+    .min_width {
+        min-width: 960px;
+    }
+
+    .pricing_section .pricing-head h4 {
+        font-size: 18px;
+    }
+
+    .pricing_section .pricing-head h2 {
+        font-size: 25px;
+    }
+
+    .order_section .content p {
+        font-size: 18px;
+    }
+}
+
+/* @media screen and (max-width:776px) {
+    .banner_section .carousel-inner {
+        height: 450px;
+    }
+
+    .banner_section .carousel-inner img {
+        height: 350px;
+    }
+} */
+
+@media (max-width: 767px) {
+    .how_it_work_section {
+        padding-top: 30px;
+    }
+}
+
+@media screen and (max-width:575px) {
+    .navbar-brand img {
+        max-width: 112px;
+    }
+
+    .pricing_section .pricing_item {
+        padding: 30px 20px;
+    }
+
+    .order_confirmation h2 {
+        font-size: 20px;
+    }
+
+    .order_confirmation p {
+        font-size: 14px;
+    }
+
+    .section_heading h1 {
+        font-size: 18px;
+    }
+
+    .content p {
+        font-size: 16px;
+    }
+
+    .verify_certification h3 {
+        font-size: 20px;
+    }
+
+    .verify_certification p {
+        font-size: 15px;
+    }
+
+    .certification-box h2 {
+        font-size: 1.2rem;
+    }
+
+    .banner_section .carousel-inner {
+        height: 350px;
+    }
+
+    /* .banner_section .carousel-inner img {
+        height: 350px;
+    } */
+    .banner_section .banner_title {
+        font-size: 20px;
+    }
+    .banner_section .carousel-caption ul li {
+        font-size: 16px;
+    }
+}

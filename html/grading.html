@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grading System</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Enter Grades for Grading Calculation</h1>
+    <form id="gradingForm">
+        <label for="centering">Centering:</label>
+        <input type="number" id="centering" name="centering" min="1" max="10" step="0.5" required><br>
+
+        <label for="corners">Corners:</label>
+        <input type="number" id="corners" name="corners" min="1" max="10" step="0.5" required><br>
+
+        <label for="edges">Edges:</label>
+        <input type="number" id="edges" name="edges" min="1" max="10" step="0.5" required><br>
+
+        <label for="surface">Surface:</label>
+        <input type="number" id="surface" name="surface" min="1" max="10" step="0.5" required><br>
+
+        <button type="button" id="calculateGrade">Calculate Final Grade</button>
+    </form>
+
+    <h2>Final Grade:</h2>
+    <p id="finalGrade">-</p>
+
+    <script>
+        // Function to calculate the final grade based on the given grading logic
+        function calculateFinalGrade(grades) {
+            let [C, O, E, S] = grades;
+
+            // Sort grades in descending order
+            let [a, b, c, d] = grades.slice().sort((a, b) => b - a);
+
+            // Calculate the difference between the third-highest and lowest grades
+            let e = c - d;
+
+            // Return the calculated grade based on custom rules
+            return (e ? 
+                      (d === E || d === S 
+                        ? e < 1 ? 0.5 : ((e === 1 && d > 8.4) || (a - d === 1.5 && a < 10)) ? 0.5 : 1 
+                        : d - C ? e < 3 ? 0.5 : 1 
+                        : e < 2 ? 0.5 : e < 4 ? 1 : 1.5
+                      ) 
+                    : 0) + d;
+        }
+
+        // jQuery handler for calculating the grade when button is clicked
+        $(document).ready(function() {
+            $('#calculateGrade').click(function() {
+                // Get the values from input fields and convert them to numbers
+                let centering = parseFloat($('#centering').val());
+                let corners = parseFloat($('#corners').val());
+                let edges = parseFloat($('#edges').val());
+                let surface = parseFloat($('#surface').val());
+
+                // Calculate the final grade using the calculateFinalGrade function
+                let finalGrade = calculateFinalGrade([centering, corners, edges, surface]);
+
+                // Display the final grade
+                $('#finalGrade').text("Final Grade: " + finalGrade.toFixed(1));
+            });
+        });
+    </script>
+</body>
+</html>
