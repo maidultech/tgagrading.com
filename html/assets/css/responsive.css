@@ -1,0 +1,127 @@
+@media screen and (max-width:1199px) {
+    .header_section .nav-link { 
+        padding: 17px 13px !important; 
+    }
+}
+
+
+@media screen and (max-width:991px) {
+    .header_section {
+        padding: 5px 0px;
+    }
+
+    .header_section .nav-link {
+        font-size: 15px;
+        font-weight: 400;
+        padding: 7px 0px !important;
+        color: #212121;
+    }
+
+    .banner_content h1 {
+        font-size: 28px;
+    }
+
+    .banner_section {
+        padding: 50px 0px;
+    }
+    
+    .pricing_section .pricing-head h4 {
+        font-size: 20px; 
+    }
+
+    .pricing_section .pricing-head h2 {
+        font-size: 28px; 
+    }
+
+    .order_section .content p {
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width:767px) {
+    .banner_content h1 {
+        font-size: 20px;
+    }
+
+    .banner_content h4 {
+        font-size: 16px;
+    }
+
+    .section_heading h2 {
+        font-size: 20px;
+    }
+
+    .section_heading p {
+        font-size: 16px;
+    }
+
+    .contact_info h1 {
+        font-size: 25px;
+        line-height: 35px;
+    }
+
+    .user_dashboard .title h4 {
+        font-size: 15px;
+    }
+
+    .min_width {
+        min-width: 960px;
+    }
+
+    .pricing_section .pricing-head h4 {
+        font-size: 18px; 
+    }
+    .pricing_section .pricing-head h2 {
+        font-size: 25px; 
+    }
+    .order_section .content p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width:576px) {}
+
+@media screen and (max-width:575px) {
+    .navbar-brand img {
+        max-width: 112px;
+    }
+
+    .pricing_section .pricing_item {
+        padding: 30px 20px;
+    }
+
+    .order_confirmation h2 {
+        font-size: 20px;
+    }
+
+    .order_confirmation p {
+        font-size: 14px;
+    }
+
+    .section_heading h1 {
+        font-size: 18px;
+    }
+    .content p {
+        font-size: 16px;
+    }
+    .verify_certification h3 {
+        font-size: 20px; 
+    }
+
+    .verify_certification p {
+        font-size: 15px; 
+    }
+
+    .sitemap_link a, .sitemap_sction .pages a {
+        font-size:16px;
+    }
+
+    .sitemap_sction .title {
+        font-size: 18px;
+        color: #222;
+    }
+    
+}
+
+

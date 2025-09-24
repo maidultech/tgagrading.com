@@ -1,0 +1,125 @@
+$(document).ready(function () {
+
+    // testimonial carousel
+    var swiper = new Swiper(".testimonial_carousel", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        speed: 8000,
+        centeredSlides: false,
+        autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            992: {
+                slidesPerView: 2,
+            },
+            1200: {
+                slidesPerView: 3,
+            },
+        },
+    });
+
+    var swiper = new Swiper(".relatedCarousel", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        loop: false, // Set loop to false if you don't want cycling
+        centeredSlides: false,
+        autoplay: {
+            delay: 3000,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            450: {
+                slidesPerView: 1,
+            },
+            640: {
+                slidesPerView: 2,
+            },
+            992: {
+                slidesPerView: 3,
+            },
+            1200: {
+                slidesPerView: 3,
+            },
+        },
+    });
+
+
+    // password show hide
+    $(".toggle-password").click(function () {
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $($(this).attr("toggle"));
+        if (input.attr("type") == "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+    });
+
+    $(".confirm-toggle-password").click(function () {
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $($(this).attr("toggle"));
+        if (input.attr("type") == "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+    });
+
+    
+})  // end document
+
+/**
+ * 
+ * @param {*} password 
+ * @param {*} sel form selector
+ */
+
+function checkPasswordComplexity(password,sel=null) {
+
+    if(password.length > 0){
+        $('#password-requirements').removeClass('d-none')
+    }else{
+        $('#password-requirements').addClass('d-none')
+    }
+    var upperCase = /[A-Z]/.test(password);
+    var lowerCase = /[a-z]/.test(password);
+    var numberChar = /\d/.test(password);
+    var specialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    var length = password.length >= 8;
+    updateRequirement('#upper-case', upperCase, 'Uppercase letter');
+    updateRequirement('#lower-case', lowerCase, 'Lowercase letter');
+    updateRequirement('#number-char', numberChar, 'Include Number');
+    updateRequirement('#special-char', specialChar, 'Special character');
+    updateRequirement('#length', length, 'Minimum 8 characters');
+
+    $(sel).find('[type="submit"]').attr('disabled', !(
+        upperCase
+    && lowerCase
+    && specialChar
+    && specialChar
+    && length
+    ))
+}
+
+function updateRequirement(selector, isValid, message) {
+    if (isValid) {
+        $(selector).html('✔ ' + message).removeClass('text-danger').addClass('text-success');
+    } else {
+        $(selector).html('✖ ' + message).removeClass('text-success').addClass('text-danger');
+    }
+}
